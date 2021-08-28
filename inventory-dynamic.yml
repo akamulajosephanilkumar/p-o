@@ -4,7 +4,6 @@
   become: no
   tasks: 
 
-  - name: display inventory hostname
-    debug: 
-      msg: "I am {{ inventory_hostname }}"
-      
+  # Add a task to display "{{ inventory_hostname }}"
+  # test by running 
+  #   ansible-playbook -i inventory-dynamic-inventory.sh inventory-dynamic.yml
