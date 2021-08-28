@@ -1,0 +1,27 @@
+---
+# This play is missing a handler. 
+#
+# run
+# ansible-playbook directive-handler.yml
+#
+- name: play 1
+  hosts: localhost 
+  gather_facts: no
+  become: no
+  connection: local
+  vars:
+    playbook_var: playbook_val
+
+  tasks: 
+  - name: task 1 in play 1
+    debug: 
+      msg: This is task 1, play 1
+    changed_when: true
+    notify: play handler
+
+  - name: task 2 in play 1
+    debug: 
+      msg: This is task 2, play 1
+    changed_when: true
+    notify: play handler
+
