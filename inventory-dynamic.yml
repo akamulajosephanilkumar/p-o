@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: no
+  become: no
+  tasks: 
+
+  - name: display inventory hostname
+    debug: 
+      msg: "I am {{ inventory_hostname }}"
+      
