@@ -1,0 +1,18 @@
+# This file is missing a loop.
+#
+# run
+# ansible-playbook directive-loop.yml 
+#
+- name: Loop Register Test
+  hosts: localhost 
+  gather_facts: no
+  become: no
+  connection: local
+  tasks:
+
+# repeat one task
+
+    - name: loop with list
+      debug:
+        msg: item "{{ item }}"
+      # add a loop here. 
