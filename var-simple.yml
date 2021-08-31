@@ -1,0 +1,25 @@
+---
+# This file needs a "vars" section. 
+#
+# run
+#   ansible-playbook var-simple.yml
+
+- name: define and display a simple variable
+  hosts: localhost 
+  gather_facts: no
+  become: no
+  connection: local
+  # vars section goes here. 
+
+  tasks:
+
+  - name: display the simple variable content, using a jinja2 substitution 
+    debug: 
+      msg: "simple_variable: {{ simple_variable }}"
+
+  - name: make another variable that is an exact copy
+    vars:
+      copy_of_variable: "{{ simple_variable }}"
+    debug: 
+      msg: "copy_of_variable: {{ simple_variable }}"
+      
