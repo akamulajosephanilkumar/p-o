@@ -8,6 +8,8 @@
   gather_facts: no
   become: no
   connection: local
+  vars:
+    b: [1,2,3]
   tasks:
 
 # repeat one task
@@ -16,3 +18,4 @@
       debug:
         msg: item "{{ item }}"
       # add a loop here. 
+      loop: "{{ b }}"
